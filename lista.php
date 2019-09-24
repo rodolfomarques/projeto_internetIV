@@ -1,4 +1,9 @@
-<?php include 'header.php';?>
+<?php
+
+    include 'header.php';
+    require 'conection.php';
+
+?>
 
     <section id="tcc_list">
         <button onclick="w3Acordeon('01')" class="w3-button w3-block btn_acordeon">
