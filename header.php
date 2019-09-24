@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sistema de Gestão de TCCs</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/w3.css">
 </head>
 
 <body>

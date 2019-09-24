@@ -6,7 +6,7 @@
 body {
 
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     margin: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
@@ -104,4 +104,48 @@ a.menu_link {
     padding: 10px 10px;
     border: 1px black solid;
     border-radius: 10px;
+}
+
+
+/* FORMULÁRIO DE CADASTRO DOS USUÁRIOS */
+
+form#user_form {
+    
+    grid-row: 2;
+    grid-column: 2/3;
+    max-width: 400px;
+    align-self: center;
+    justify-self: center;
+}
+
+section#user_cat {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+/* LISTA DOS TCCS */
+
+section#tcc_list {
+    
+    width: 90%;
+    margin-top: 30px;
+    padding: 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: aliceblue;
+    grid-column: 2/3;
+    grid-row: 2;
+    justify-self: center;
+}
+
+button.btn_acordeon{
+    
+    text-align: left;
+}
+
+div.tcc_list_item {
+
+    background-color:rgba(166, 228, 199, 0.651);
 }
