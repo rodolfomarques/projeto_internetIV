@@ -1,7 +1,7 @@
 <?php
 
     include 'header.php';
-    require 'conection.php';
+    require './php/conection.php';
 
 ?>
 
@@ -12,7 +12,13 @@
         </button>
 
         <div id="01" class="w3-container w3-hide tcc_list_item">
-            <p>Some text..</p>
+            Orientador
+            banca
+            tema
+            local
+            palavras chaves
+            status
+
         </div>
 
         <button onclick="w3Acordeon('02')" class="w3-button w3-block btn_acordeon">

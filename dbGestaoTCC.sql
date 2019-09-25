@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 24, 2019 at 03:01 AM
--- Server version: 5.6.37
--- PHP Version: 5.6.31
+-- Generation Time: 25-Set-2019 às 16:08
+-- Versão do servidor: 5.6.37
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES latin1 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `dbGestaoTCC`
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `id_Local`
+-- Estrutura da tabela `id_Local`
 --
 
 CREATE TABLE IF NOT EXISTS `id_Local` (
@@ -31,12 +31,21 @@ CREATE TABLE IF NOT EXISTS `id_Local` (
   `nomeLocal` varchar(20) NOT NULL,
   `tipoLocal` varchar(20) NOT NULL,
   `localizacao` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `id_Local`
+--
+
+INSERT INTO `id_Local` (`idLocal`, `nomeLocal`, `tipoLocal`, `localizacao`) VALUES
+(1, 'Sala 404', 'Sala', 'CCHLA - BL 15'),
+(2, 'Sala 306', 'Sala', 'DEMID - BL 1'),
+(3, 'AuditÃ³rio 305', 'AuditÃ³rio', 'CCHLA - BL3');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Apresentacao`
+-- Estrutura da tabela `tb_Apresentacao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Apresentacao` (
@@ -50,30 +59,62 @@ CREATE TABLE IF NOT EXISTS `tb_Apresentacao` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_AreaPesquisa`
+-- Estrutura da tabela `tb_AreaConhecimento`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_AreaPesquisa` (
-  `idAreaConhecimento` int(4) NOT NULL,
-  `areaConhecimento` varchar(30) NOT NULL
+CREATE TABLE IF NOT EXISTS `tb_AreaConhecimento` (
+  `idAreaConhecimento` int(2) NOT NULL,
+  `areaDeConhecimento` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_AreaConhecimento`
+--
+
+INSERT INTO `tb_AreaConhecimento` (`idAreaConhecimento`, `areaDeConhecimento`) VALUES
+(1, 'Teorias da Comunicacao Social'),
+(2, 'Comunicacao Aplicada as Midias Digitais'),
+(3, 'Editoracao Eletronica'),
+(4, 'Imagem Digital'),
+(5, 'Imagem Digital - Infografia'),
+(6, 'Fotografia Digital'),
+(7, 'Audio Digital'),
+(8, 'Video Digital'),
+(9, 'Aplicacoes Multimidia'),
+(10, 'Empreendedorismo'),
+(11, 'Internet e Aplicacoes Web - Design'),
+(12, 'Internet e Aplicacoes Web - Development'),
+(13, 'Internet e Aplicacoes Web - Internet das Coisas'),
+(14, 'Internet e Aplicacoes Web - Mobile'),
+(15, 'Internet e Aplicacoes Web - eCommerce'),
+(16, 'Animacao 2D'),
+(17, 'Animacao 3D'),
+(18, 'Animacao 3D - Games'),
+(19, 'Teorias da Comunicacao Digital');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Banca`
+-- Estrutura da tabela `tb_Banca`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Banca` (
   `idBanca` int(4) NOT NULL,
   `idMembros_FK` int(4) NOT NULL,
   `statusComparecimento` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_Banca`
+--
+
+INSERT INTO `tb_Banca` (`idBanca`, `idMembros_FK`, `statusComparecimento`) VALUES
+(1, 1, 'Aguardando');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_CEP`
+-- Estrutura da tabela `tb_CEP`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_CEP` (
@@ -87,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `tb_CEP` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Convidado`
+-- Estrutura da tabela `tb_Convidado`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Convidado` (
@@ -96,15 +137,22 @@ CREATE TABLE IF NOT EXISTS `tb_Convidado` (
   `idAreaConhecimento_FK` int(4) NOT NULL,
   `instituicao` varchar(30) NOT NULL,
   `profissao` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_Convidado`
+--
+
+INSERT INTO `tb_Convidado` (`idConvidado`, `pessoaCPF_FK`, `idAreaConhecimento_FK`, `instituicao`, `profissao`) VALUES
+(8, 294586690, 2, 'Universidade particular', 'Professor');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_DescritoresIBICT`
+-- Estrutura da tabela `tb_DescritoresCNPQ`
 --
 
-CREATE TABLE IF NOT EXISTS `tb_DescritoresIBICT` (
+CREATE TABLE IF NOT EXISTS `tb_DescritoresCNPQ` (
   `descritorID` int(4) NOT NULL,
   `palavraChave` varchar(30) NOT NULL,
   `descricao` varchar(100) NOT NULL
@@ -113,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `tb_DescritoresIBICT` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Estudante`
+-- Estrutura da tabela `tb_Estudante`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Estudante` (
@@ -124,10 +172,18 @@ CREATE TABLE IF NOT EXISTS `tb_Estudante` (
   `estCurso` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `tb_Estudante`
+--
+
+INSERT INTO `tb_Estudante` (`estMatricula`, `pessoaCPF_FK`, `estPeriodoIngresso`, `estPeriodoAtual`, `estCurso`) VALUES
+(2016025899, 2147483647, '2016.1', '2019.1', 'MÃ­dias Digitais'),
+(2016789425, 2147483647, '2016.1', '2019.1', 'FÃ­sica');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Membros`
+-- Estrutura da tabela `tb_Membros`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Membros` (
@@ -135,12 +191,19 @@ CREATE TABLE IF NOT EXISTS `tb_Membros` (
   `profSIAPE_FK` int(11) NOT NULL,
   `idMembro1_FK` int(11) NOT NULL,
   `idMembro2_FK` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_Membros`
+--
+
+INSERT INTO `tb_Membros` (`idMembros`, `profSIAPE_FK`, `idMembro1_FK`, `idMembro2_FK`) VALUES
+(1, 28373822, 2147483647, 2147483647);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Orientacao`
+-- Estrutura da tabela `tb_Orientacao`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Orientacao` (
@@ -148,12 +211,20 @@ CREATE TABLE IF NOT EXISTS `tb_Orientacao` (
   `estMatricula_FK` int(11) NOT NULL,
   `profSIAPE_FK` int(11) NOT NULL,
   `idProjeto_FK` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=187 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_Orientacao`
+--
+
+INSERT INTO `tb_Orientacao` (`idOrientacao`, `estMatricula_FK`, `profSIAPE_FK`, `idProjeto_FK`) VALUES
+(185, 2016065122, 28373822, 0),
+(186, 2016025899, 2633569, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Pessoa`
+-- Estrutura da tabela `tb_Pessoa`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Pessoa` (
@@ -167,10 +238,21 @@ CREATE TABLE IF NOT EXISTS `tb_Pessoa` (
   `pessoaSexo` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `tb_Pessoa`
+--
+
+INSERT INTO `tb_Pessoa` (`CPF`, `pessoaNome`, `CEP_FK`, `endNumero`, `endComplemento`, `idTelefone_FK`, `pessoaEmail`, `pessoaSexo`) VALUES
+(2633569, 'Maria Andrade', 58040360, 23, 'Casa', 17, 'maria@google.com.br', 'F'),
+(241563693, 'João Gomes', 58040360, 12, 'Apto 236B', 15, 'joao@bol.com.br', 'M'),
+(294586690, 'Victor ', 58040630, 988745636, 'apto 101', 18, 'victor@terra.com.br', 'M'),
+(297884165, 'Andressa ', 58040630, 955881234, 'casa', 0, 'andressa@gmail.com', 'F'),
+(2147483647, 'Carlos Moreira SÃ¡', 58040630, 988654523, 'casa', 14, 'carlos@terra.com.br', 'M');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Professor`
+-- Estrutura da tabela `tb_Professor`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Professor` (
@@ -179,10 +261,18 @@ CREATE TABLE IF NOT EXISTS `tb_Professor` (
   `idAreaConhecimento_FK` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `tb_Professor`
+--
+
+INSERT INTO `tb_Professor` (`profSIAPE`, `pessoaCPF_FK`, `idAreaConhecimento_FK`) VALUES
+(896523, 0, 12),
+(2633569, 2147483647, 5);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_ProjetoTCC`
+-- Estrutura da tabela `tb_ProjetoTCC`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_ProjetoTCC` (
@@ -200,20 +290,31 @@ CREATE TABLE IF NOT EXISTS `tb_ProjetoTCC` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Telefone`
+-- Estrutura da tabela `tb_Telefone`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Telefone` (
   `idTel` int(4) NOT NULL,
   `dddTel` int(3) NOT NULL,
-  `numeroTel` int(8) NOT NULL,
+  `numeroTel` int(9) NOT NULL,
   `tipoCel` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_Telefone`
+--
+
+INSERT INTO `tb_Telefone` (`idTel`, `dddTel`, `numeroTel`, `tipoCel`) VALUES
+(14, 83, 988654523, 'fixo'),
+(15, 83, 988756548, 'Celular '),
+(17, 83, 988756425, 'celular'),
+(18, 83, 988745636, 'celular '),
+(19, 83, 955881234, 'fixo');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_Tema`
+-- Estrutura da tabela `tb_Tema`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_Tema` (
@@ -222,8 +323,8 @@ CREATE TABLE IF NOT EXISTS `tb_Tema` (
   `palavraChave1` varchar(20) NOT NULL,
   `palavraChave2` varchar(20) NOT NULL,
   `palavraChave3` varchar(20) NOT NULL,
-  `palavraChave4` varchar(20) NOT NULL,
-  `palavraChave5` varchar(20) NOT NULL,
+  `palavraChave4` varchar(20) DEFAULT NULL,
+  `palavraChave5` varchar(20) DEFAULT NULL,
   `descritorID_FK` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -244,9 +345,9 @@ ALTER TABLE `tb_Apresentacao`
   ADD PRIMARY KEY (`protocoloApresentacao`);
 
 --
--- Indexes for table `tb_AreaPesquisa`
+-- Indexes for table `tb_AreaConhecimento`
 --
-ALTER TABLE `tb_AreaPesquisa`
+ALTER TABLE `tb_AreaConhecimento`
   ADD PRIMARY KEY (`idAreaConhecimento`);
 
 --
@@ -268,9 +369,9 @@ ALTER TABLE `tb_Convidado`
   ADD PRIMARY KEY (`idConvidado`);
 
 --
--- Indexes for table `tb_DescritoresIBICT`
+-- Indexes for table `tb_DescritoresCNPQ`
 --
-ALTER TABLE `tb_DescritoresIBICT`
+ALTER TABLE `tb_DescritoresCNPQ`
   ADD PRIMARY KEY (`descritorID`);
 
 --
@@ -329,37 +430,27 @@ ALTER TABLE `tb_Tema`
 -- AUTO_INCREMENT for table `id_Local`
 --
 ALTER TABLE `id_Local`
-  MODIFY `idLocal` int(4) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tb_AreaPesquisa`
---
-ALTER TABLE `tb_AreaPesquisa`
-  MODIFY `idAreaConhecimento` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `idLocal` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tb_Banca`
 --
 ALTER TABLE `tb_Banca`
-  MODIFY `idBanca` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `idBanca` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_Convidado`
 --
 ALTER TABLE `tb_Convidado`
-  MODIFY `idConvidado` int(4) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `tb_DescritoresIBICT`
---
-ALTER TABLE `tb_DescritoresIBICT`
-  MODIFY `descritorID` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `idConvidado` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tb_Membros`
 --
 ALTER TABLE `tb_Membros`
-  MODIFY `idMembros` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMembros` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tb_Orientacao`
 --
 ALTER TABLE `tb_Orientacao`
-  MODIFY `idOrientacao` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `idOrientacao` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=187;
 --
 -- AUTO_INCREMENT for table `tb_ProjetoTCC`
 --
@@ -369,7 +460,7 @@ ALTER TABLE `tb_ProjetoTCC`
 -- AUTO_INCREMENT for table `tb_Telefone`
 --
 ALTER TABLE `tb_Telefone`
-  MODIFY `idTel` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTel` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `tb_Tema`
 --

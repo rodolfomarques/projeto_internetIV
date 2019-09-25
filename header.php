@@ -12,5 +12,5 @@
 <body>
 
     <section id="header">
-        <h1 id="main_title">Sistema de Gerenciamento de Trabalhos de Conlusão de Curso</h1>
+        <h1 id="main_title"><a href="index.php">Sistema de Gerenciamento de Trabalhos de Conlusão de Curso</a></h1>
     </section>

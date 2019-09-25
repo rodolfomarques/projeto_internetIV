@@ -1,3 +1,5 @@
+// SCRIPT QUE ATIVA O W3 ACORDEON A LISTA DE TCCS
+
 function w3Acordeon(id) {
     var x = document.getElementById(id);
     if (x.className.indexOf("w3-show") == -1) {
@@ -7,7 +9,3 @@ function w3Acordeon(id) {
     }
 }
 
-
-var userDataForm = document.getElementById('user_data');
-
-var estudanteInputs;

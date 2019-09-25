@@ -18,26 +18,51 @@ body {
 
 }
 
+form {
+
+    width: 100%;
+    grid-column: 2/3;
+    
+}
+
+fieldset {
+
+    background: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 0.7px 3px gray;
+    width: 100%;
+    height: 100%;
+}
+
+legend {
+    background: #00a8eb;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+input {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button[type="submit"]{
+
+    padding: 10px;
+    border-radius: 5px;
+}
+
 section#header {
 
+    background: linear-gradient(45deg, #ff0081, #6827b0);
     grid-column: 1/4;
     grid-row: 1/2;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-section#header::before{
-    
-    content: '';
-    position: absolute;
-    background: linear-gradient(45deg, #ff0081, #6827b0);
-    width: 100vw;
-    height: 100%;
-    border-radius: 0% 0% 50% 50%/ 0% 0% 50% 50%;
-    transform: scaley(1.5);
-    
 }
 
 h1#main_title {
@@ -122,9 +147,80 @@ section#user_cat {
 
     display: flex;
     flex-direction: column;
+    height: 250px;
+    width: 100%; 
+    align-items: center;
+    justify-content: center;
 
 }
 
+section#user_data {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+section#user_data div{
+
+    width: 100%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+section#cat_data{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section#cat_data button{
+
+    padding: 5px;
+    margin: 15px;
+}
+
+/* cadastro orientacao */
+
+
+form#orientacao_form {
+
+    width: 300px;
+    align-self: center;
+    justify-self: center;
+}
+
+section.default_section{
+
+    padding: 10px;
+}
+
+div.input_blocks {
+    width: 100%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.input_blocks button{
+    margin: 10px auto;
+}
+
+/* FORMULARIO TCC */
+
+section#tcc_data {
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+section label,input {
+    margin-top: 5px;
+}
 
 /* LISTA DOS TCCS */
 
@@ -148,4 +244,12 @@ button.btn_acordeon{
 div.tcc_list_item {
 
     background-color:rgba(166, 228, 199, 0.651);
+}
+
+div.mySlide div{
+
+    width: 100%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
 }
